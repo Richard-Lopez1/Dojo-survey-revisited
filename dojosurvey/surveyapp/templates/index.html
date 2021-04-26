@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Welcome to the DOJO online order form</h1>
+    <h2> Menu Items: </h2>
+
+    {% for item in menu_item %}
+
+    <p>{{ item }}</p>
+
+    {% endfor %}
+
+    <form action="/result" method="POST">
+        {% csrf_token %}
+
+        Name: <input type="text" name="user_name">
+
+        <div>
+        Which items would you like to order from the menu?
+        <select name="menu_item">
+            <option value="Chum made by Zaur">Chum made by Zaur</option>
+            <option value="Chicken tacos">Chicken tacos</option>
+            <option value="Steak">Steak</option>
+            <option value="Cheese Burger">Cheese Burger</option>
+        </select>
+        </div>    
+
+        <input type="submit" value="click to submit your order">
+
+    </form>
+
+</body>
+</html>
